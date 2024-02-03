@@ -27,7 +27,7 @@ jobs:
         run: pnpm install
 
       - name: Install Playwright browsers
-        run: npx playwright install chrome --with-deps
+        run: pnpm exec playwright install chrome --with-deps
 
       - name: Test
         run: pnpm test
