@@ -50,7 +50,7 @@ jobs:
         run: pnpm prisma db push
 
       - name: Install Playwright browsers
-        run: pnpm exec playwright install chrome --with-deps
+        run: pnpm exec playwright install chromium --with-deps
 
       - name: Test
         run: pnpm test
