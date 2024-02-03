@@ -26,6 +26,8 @@ jobs:
           - 5432:5432
     env:
       DATABASE_URL: postgresql://postgres:postgres@localhost:5432/sk-workflow-test
+      STRIPE_MOCK_HOST: localhost
+      STRIPE_MOCK_PORT: 12111
 
     steps:
       - name: Checkout
@@ -51,6 +53,9 @@ jobs:
 
       - name: Install Playwright browsers
         run: pnpm exec playwright install chromium --with-deps
+
+      - name: Start containers
+        run: docker compose up --detach
 
       - name: Test
         run: pnpm test
